@@ -1,7 +1,9 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 
 class Page1 extends React.Component {
+
   render() {
     const {counter} = this.props;
     return (
