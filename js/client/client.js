@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from '../store/createStore'
 import { Router, Route } from 'react-router'
 import routes from '../lib/routes'
+import {increment} from "../action/counter";
 
 let {store, history} = createStore();
 render(
@@ -20,6 +21,6 @@ store.subscribe(() => {
   console.log(store.getState())
 })
 
-store.dispatch({ type: 'INCREMENT' });
-store.dispatch({ type: 'INCREMENT' });
-store.dispatch({ type: 'INCREMENT' });
+store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(increment());

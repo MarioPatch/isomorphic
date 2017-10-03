@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { Route, Router, RouterContext, IndexRoute, match } from 'react-router'
 import { createStore } from '../store/createStore'
 import routes from '../lib/routes'
+import {increment, decrement} from "../action/counter";
 
 
 fs.readFile(__dirname+'/../../html/index.html', (err, html) => {
@@ -27,10 +28,10 @@ fs.readFile(__dirname+'/../../html/index.html', (err, html) => {
         console.log(store.getState())
       })
 
-      store.dispatch({ type: 'INCREMENT' })
-      store.dispatch({ type: 'INCREMENT' })
-      store.dispatch({ type: 'DECREMENT' })
-      store.dispatch({ type: 'INCREMENT' })
+      store.dispatch(increment())
+      store.dispatch(increment())
+      store.dispatch(decrement())
+      store.dispatch(increment())
 
       const component = ( <Provider store={store} >
         <RouterContext {...renderProps}/>
