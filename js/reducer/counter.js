@@ -1,6 +1,6 @@
 import {INCREMENT, DECREMENT} from "../action/counter";
 
-function counter(state = 0, action) {
+export default (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
       return state + 1
@@ -10,5 +10,3 @@ function counter(state = 0, action) {
       return state
   }
 }
-
-export default counter;

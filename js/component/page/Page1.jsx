@@ -17,10 +17,8 @@ Page1.propTypes = {
     counter : PropTypes.number.isRequired
 }
 
-function mapStateToProps(state) {
-    return {
-        counter: state.counter,
-    }
-}
+const mapStateToProps = (state) => ({
+  counter: state.counter,
+})
 
 export default connect(mapStateToProps)(Page1);
