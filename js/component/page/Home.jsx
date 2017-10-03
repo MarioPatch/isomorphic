@@ -5,8 +5,8 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-          <h1>Home</h1>
-          <Link to={`/Page1`}>Page1</Link>
+        <h1>Home</h1>
+        <Link to={`/Page1`}>Page1</Link>
       </div>
     )
   }

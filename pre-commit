@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cd "$(git rev-parse --show-toplevel)"
+ESLINT="node_modules/.bin/eslint"
+
+STAGED_FILES=($(git diff --cached --name-only --diff-filter=ACM | grep ".jsx\{0,1\}$"))
+
+if [[ "${#STAGED_FILES[@]}" != 0 ]]; then
+  echo "=============================================="
+  echo "     ESLint fixing : ${#STAGED_FILES[@]} files"
+  echo "=============================================="
+
+  $ESLINT $STAGED_FILES --fix"
+  $ESLINT $STAGED_FILES"
+  ESLINT_EXIT="$?"
+
+  echo $ESLINT_EXIT
+  # Re-add files since they may have been fixed
+  git add "${STAGED_FILES[@]}"
+
+  if [[ "${ESLINT_EXIT}" == 0 ]]; then
+    printf "\n\033[42mCOMMIT SUCCEEDED\033[0m\n"
+  else
+    printf "\n\033[41mCOMMIT FAILED:\033[0m Fix eslint errors and try again\n"
+    exit 1
+  fi
+fi
+
+exit $?

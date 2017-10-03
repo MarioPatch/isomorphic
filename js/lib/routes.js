@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route } from 'react-router';
 
 import Layout from '../component/layout/Layout';
 import Home from '../component/page/Home';
